@@ -44,6 +44,33 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
+// localhost:8000/dashboard
+Route::get('dashboard', function() {
+  return view('main.dashboard');
+});
+// localhost:8000/presensi
+Route::get('presensi', function() {
+  return view('main.tables');
+});
+// localhost:8000/login
+Route::get('login', function() {
+  return view('main.login');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
