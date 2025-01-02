@@ -41,6 +41,9 @@ export default defineConfig({
     laravel({
       input: [
         'resources/css/app.css',
+        'resources/assets/versi 3.1/datatables.min.css',
+        'resources/assets/versi 3.1/datatables.min.js',
+        'resources/assets/versi 3.1/main.js',
         'resources/assets/css/demo.css',
         'resources/js/app.js',
         ...pageJsFiles,

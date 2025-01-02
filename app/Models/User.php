@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -43,5 +44,27 @@ class User extends Authenticatable
       'email_verified_at' => 'datetime',
       'password' => 'hashed',
     ];
+  }
+
+  public function getCreatedAtAttribute()
+  {
+    return date('d F Y, H:i', strtotime($this->attributes['created_at']));
+  }
+
+  public function getUpdatedAtAttribute()
+  {
+    return date('d-m-Y H:i', strtotime($this->attributes['updated_at']));
+  }
+
+  public function getEmailVerifiedAtAttribute()
+  {
+    return $this->attributes['email_verified_at'] == null ? null : date('d-m-Y H:i', strtotime($this->attributes['email_verified_at']));
+  }
+
+  public function getPermissionArray()
+  {
+    return $this->getAllPermissions()->mapWithKeys(function ($permission) {
+      return [$permission->name => true];
+    })->toArray();
   }
 }

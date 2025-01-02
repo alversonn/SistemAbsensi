@@ -58,6 +58,18 @@
       ]
     },
     {
+      "url": "guru",
+      "name": "Data Guru",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "guru"
+    },
+    {
+      "url": "siswa",
+      "name": "Data Siswa",
+      "icon": "menu-icon tf-icons bx bx-book",
+      "slug": "siswa"
+    },
+    {
       "name": "Layouts",
       "icon": "menu-icon tf-icons bx bx-layout",
       "slug": "layouts",

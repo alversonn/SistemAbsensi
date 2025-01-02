@@ -33,8 +33,7 @@
     "vite": "^5.3.5"
   },
   "overrides": {
-    "prop-types": "15.8.1",
-    "sass": "1.76.0"
+    "prop-types": "15.8.1"
   },
   "resolutions": {
     "prop-types": "15.8.1",
@@ -82,6 +81,11 @@
     "apexcharts-clevision": "^3.28.5",
     "bootstrap": "~5.3.3",
     "boxicons": "~2.1.4",
+    "datatables.net": "^2.1.8",
+    "datatables.net-bs5": "^2.1.8",
+    "datatables.net-buttons": "^3.2.0",
+    "datatables.net-dt": "^2.1.8",
+    "datatables.net-responsive": "^3.0.3",
     "highlight.js": "~11.9.0",
     "html5-qrcode": "^2.3.8",
     "jquery": "~3.7.1",

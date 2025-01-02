@@ -46,6 +46,33 @@ $container = ($container ?? 'container-xxl');
             @endif
 
             @yield('content')
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="editSidebar" aria-labelledby="editSidebarLabel">
+              <div class="offcanvas-header">
+                <h5 id="editSidebarLabel">Edit Data Siswa</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <form id="editForm">
+                  <div class="mb-3">
+                    <label for="edit-nisn" class="form-label">NISN</label>
+                    <input type="text" class="form-control" id="edit-nisn" name="nisn" readonly>
+                  </div>
+                  <div class="mb-3">
+                    <label for="edit-nama" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="edit-nama" name="nama">
+                  </div>
+                  <div class="mb-3">
+                    <label for="edit-status" class="form-label">Status</label>
+                    <select class="form-select" id="edit-status" name="status">
+                      <option value="Alpha">Alpha</option>
+                      <option value="Hadir">Hadir</option>
+                    </select>
+                  </div>
+                  <button type="button" class="btn btn-primary" id="saveChanges">Save Changes</button>
+                </form>
+              </div>
+            </div>
+
 
           </div>
           <!-- / Content -->

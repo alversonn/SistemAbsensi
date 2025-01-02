@@ -43,17 +43,24 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\GuruController;
+
+
+Route::resource('guru', GuruController::class);
+Route::resource('siswa', SiswaController::class);
+
 
 // localhost:8000/dashboard
-Route::get('dashboard', function() {
+Route::get('dashboard', function () {
   return view('main.dashboard');
 });
 // localhost:8000/presensi
-Route::get('presensi', function() {
+Route::get('presensi', function () {
   return view('main.tables');
 });
 // localhost:8000/login
-Route::get('login', function() {
+Route::get('login', function () {
   return view('main.login');
 });
 
