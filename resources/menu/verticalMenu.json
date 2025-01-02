@@ -58,6 +58,12 @@
       ]
     },
     {
+      "url": "absensi",
+      "name": "Absensi",
+      "icon": "menu-icon tf-icons bx bx-detail",
+      "slug": "guru"
+    },
+    {
       "url": "guru",
       "name": "Data Guru",
       "icon": "menu-icon tf-icons bx bx-user",
