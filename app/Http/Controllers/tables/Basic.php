@@ -12,10 +12,9 @@ class Basic extends Controller
   {
 
     $students = Siswa::whereHas('class', function ($query) {
-      $query->where('nama', 'Kelas A');
+      $query->where('nama', '7A');
     })->get();
 
-    dd($students);
-    return view('main.tables', compact('students'));
+    return view('main.absensi', compact('students'));
   }
 }

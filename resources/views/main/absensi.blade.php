@@ -25,6 +25,8 @@
 
 
         <div class="table-responsive text-nowrap p-2">
+          <form action="{{ route('kehadiran') }}" method="POST">
+            @csrf
             <table class="table" id="table">
                 <thead>
                     <tr>
@@ -45,7 +47,7 @@
                                 </span>
                             </td>
                             <td>
-                                <div class="dropdown">
+                                {{-- <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>
@@ -58,12 +60,24 @@
                                             <i class="bx bx-trash me-1"></i> Delete
                                         </a>
                                     </div>
-                                </div>
+                                </div> --}}
+                                <a href="#" class="badge bg-label-success text-decoration-none">
+                                  <i class="bx bx-check"></i> Hadir
+                                </a>
+
+                                <a href="#" class="badge bg-label-warning text-decoration-none">
+                                  <i class="bx bx-x"></i> Izin
+                                </a>
+
+                                <a href="#" class="badge bg-label-danger text-decoration-none">
+                                  <i class="bx bx-x"></i> Alpha
+                                </a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+          </form>
         </div>
     </div>
     <!--/ Basic Bootstrap Table -->

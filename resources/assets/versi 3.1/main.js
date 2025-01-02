@@ -38,7 +38,7 @@ $(document).ready(function() {
       <button class="btn btn-primary create-new ms-2" tabindex="0" aria-controls="table" type="button" data-bs-toggle="offcanvas" data-bs-target="#add-new-record">
           <span>
               <i class="bx bx-plus bx-sm me-sm-2"></i>
-              <span class="d-none d-sm-inline-block">Tambah Record</span>
+              <span class="d-none d-sm-inline-block">Simpan</span>
           </span>
       </button>
   `);
