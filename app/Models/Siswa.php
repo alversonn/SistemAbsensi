@@ -16,4 +16,9 @@ class Siswa extends Model
     'nama',
     'status',
   ];
+
+  public function class()
+  {
+    return $this->belongsTo(kelas::class, 'kelas');
+  }
 }

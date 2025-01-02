@@ -49,6 +49,7 @@ use App\Http\Controllers\GuruController;
 
 Route::resource('guru', GuruController::class);
 Route::resource('siswa', SiswaController::class);
+Route::get('absensi', [TablesBasic::class, 'index'])->name('absensi');
 
 
 // localhost:8000/dashboard
