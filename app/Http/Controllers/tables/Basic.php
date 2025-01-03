@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 
 class Basic extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
+    // Mengambil data dari FormData
+    $scannedData = $request->input('scannedData');
 
+    // Query untuk mendapatkan siswa yang kelasnya bernama '7A'
     $students = Siswa::whereHas('class', function ($query) {
       $query->where('nama', '7A');
     })->get();
 
-    return view('main.absensi', compact('students'));
+    // Mengembalikan view dengan data students dan scannedData
+    return view('main.absensi', compact('students', 'scannedData'));
   }
 }
