@@ -13,6 +13,7 @@ class Kehadiran extends Model
     'id_siswa',
     'id_sesi',
     'status',
+    'updated_at',
   ];
 
   public function siswa()
@@ -20,7 +21,6 @@ class Kehadiran extends Model
     return $this->belongsTo(Siswa::class, 'id_siswa');
   }
 
-  // Relasi ke model Sesi
   public function sesi()
   {
     return $this->belongsTo(Sesi::class, 'id_sesi');

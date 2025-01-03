@@ -1,7 +1,8 @@
 $(document).ready(function() {
   var table = $('#table').DataTable({
       responsive: true,
-      order: [[5, 'desc']],
+      scrollX: false,
+      order: [[3, 'desc']],
       language: {
           lengthMenu: "Show _MENU_ entries",
           searchPlaceholder: 'Search here...'
@@ -35,7 +36,7 @@ $(document).ready(function() {
 
   // Append "Tambah Record" button after export buttons
   $('#exportButtons').after(`
-      <button class="btn btn-primary create-new ms-2" tabindex="0" aria-controls="table" type="button" data-bs-toggle="offcanvas" data-bs-target="#add-new-record">
+      <button class="btn btn-primary create-new ms-2" tabindex="0" aria-controls="table" type="submit" data-bs-toggle="offcanvas" data-bs-target="#add-new-record">
           <span>
               <i class="bx bx-plus bx-sm me-sm-2"></i>
               <span class="d-none d-sm-inline-block">Simpan</span>

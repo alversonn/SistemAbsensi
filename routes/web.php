@@ -44,14 +44,14 @@ use App\Http\Controllers\user_interface\TooltipsPopovers;
 use App\Http\Controllers\pages\AccountSettingsConnections;
 use App\Http\Controllers\pages\AccountSettingsNotifications;
 use App\Http\Controllers\authentications\ForgotPasswordBasic;
-use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\KehadiranSiswa;
 use App\Http\Controllers\user_interface\PaginationBreadcrumbs;
 
 
 Route::resource('guru', GuruController::class);
 Route::resource('siswa', SiswaController::class);
 Route::get('absensi', [TablesBasic::class, 'index'])->name('absensi');
-Route::get('kehadiran', [KehadiranController::class, 'store'])->name('kehadiran');
+Route::post('kehadiran', [KehadiranSiswa::class, 'store'])->name('kehadiran');
 
 
 // localhost:8000/dashboard

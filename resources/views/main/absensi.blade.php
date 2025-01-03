@@ -12,73 +12,53 @@
 @endsection
 
 @section('content')
-    <!-- Basic Bootstrap Table -->
-    <div class="card">
-        {{-- <h5 class="card-header">Table Basic</h5> --}}
-
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="card-title mb-0">Tabel Siswa</h5>
-            <div class="d-flex align-items-center">
-                <div id="exportButtons"></div>
+    <form action="{{ route('kehadiran') }}" method="POST">
+        @csrf
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">Tabel Siswa</h5>
+                <div class="d-flex align-items-center">
+                    <div id="exportButtons"></div>
+                </div>
             </div>
-        </div>
 
 
-        <div class="table-responsive text-nowrap p-2">
-          <form action="{{ route('kehadiran') }}" method="POST">
-            @csrf
-            <table class="table" id="table">
-                <thead>
-                    <tr>
-                        <th>NISN</th>
-                        <th>Nama</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    @foreach ($students as $student)
+            <div class="table-responsive text-nowrap p-5">
+                <input type="hidden" name="id_sesi" value="1">
+                <table class="table" id="table">
+                    <thead>
                         <tr>
-                            <td>{{ $student->nisn }}</td>
-                            <td>{{ $student->nama }}</td>
-                            <td>
-                                <span class="badge bg-label-success me-1">
-                                    {{ $student->status ?? 'Hadir' }}
-                                </span>
-                            </td>
-                            <td>
-                                {{-- <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);">
-                                            <i class="bx bx-edit-alt me-1"></i> Edit
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:void(0);">
-                                            <i class="bx bx-trash me-1"></i> Delete
-                                        </a>
-                                    </div>
-                                </div> --}}
-                                <a href="#" class="badge bg-label-success text-decoration-none">
-                                  <i class="bx bx-check"></i> Hadir
-                                </a>
-
-                                <a href="#" class="badge bg-label-warning text-decoration-none">
-                                  <i class="bx bx-x"></i> Izin
-                                </a>
-
-                                <a href="#" class="badge bg-label-danger text-decoration-none">
-                                  <i class="bx bx-x"></i> Alpha
-                                </a>
-                            </td>
+                            <th>NISN</th>
+                            <th>Nama</th>
+                            <th>Status</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-          </form>
-        </div>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @foreach ($students as $student)
+                            <tr>
+                                <td>{{ $student->nisn }}</td>
+                                <td>{{ $student->nama }}</td>
+                                <td>
+                                    <span class="badge bg-label-success me-1">
+                                        {{ $student->status ?? 'Hadir' }}
+                                    </span>
+                                </td>
+                                <td>Tanggal</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input name="absensi[{{ $student->nisn }}]" class="form-check-input" type="checkbox"
+                                            value="hadir" id="hadir-{{ $student->nisn }}"
+                                            {{ $student->status == 'Hadir' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="hadir-{{ $student->nisn }}">Hadir</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+    </form>
     </div>
-    <!--/ Basic Bootstrap Table -->
+    </div>
 @endsection
