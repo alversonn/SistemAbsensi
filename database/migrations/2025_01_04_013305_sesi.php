@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_kelas'); // Ganti dengan unsignedBigInteger
             $table->string('jam_mulai');
             $table->string('jam_selesai');
+            $table->timestamps();
 
             // Mendefinisikan foreign key
             $table->foreign('id_guru')
