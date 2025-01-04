@@ -11,10 +11,12 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('guru', function (Blueprint $table) {
+    Schema::create('siswa', function (Blueprint $table) {
       $table->id();
-      $table->string('nuptk')->unique(); // NIP (Nomor Induk Pegawai)
-      $table->string('nama');          // Nama Guru
+      $table->integer('nisn');
+      $table->string('nama');
+      $table->string('kelas');
+      $table->enum('status', ['Alpha', 'Hadir']);
       $table->timestamps();
     });
   }
@@ -24,6 +26,6 @@ return new class extends Migration
    */
   public function down(): void
   {
-    Schema::dropIfExists('guru');
+    Schema::dropIfExists('siswa');
   }
 };
