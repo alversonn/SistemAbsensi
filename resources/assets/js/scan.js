@@ -14,35 +14,22 @@ function onScanSuccess(decodedText, decodedResult) {
   console.log('Decoded text:', decodedText);
   console.log('Decoded result:', decodedResult);
 
-  // Route Laravel untuk menerima data
-  const url = '/api/absensi'; // Ganti dengan route Laravel Anda
+  // Buat form dinamis
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = '/api/return'; // Endpoint Laravel untuk menerima data
+  form.style.display = 'none'; // Sembunyikan form agar tidak terlihat
 
-  // Membuat objek FormData untuk mengirimkan data seperti form biasa
-  let formData = new FormData();
-  formData.append('scannedData', decodedText); // Data QR Code yang dikirim
+  // Tambahkan input untuk data hasil scan QR
+  const qrInput = document.createElement('input');
+  qrInput.type = 'hidden';
+  qrInput.name = 'qr_data'; // Nama field yang diterima oleh Laravel
+  qrInput.value = decodedText; // Data hasil scan
+  form.appendChild(qrInput);
 
-  // Kirim data ke server menggunakan Fetch API dengan FormData
-  fetch(url, {
-    method: 'POST',
-    body: formData // Form data dikirim langsung
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(result => {
-      console.log('Response from server:', result);
-
-      // Redirect jika server memberikan URL untuk diarahkan
-      if (result.redirect_url) {
-        location.href = result.redirect_url;
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+  // Tambahkan form ke body dan submit
+  document.body.appendChild(form);
+  form.submit();
 
   // Membersihkan scanner setelah QR dibaca
   html5QRCodeScanner.clear();
