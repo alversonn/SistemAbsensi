@@ -16,7 +16,7 @@
       @csrf
       @method('PUT')
       <div class="mb-3">
-        <label for="nuptk" class="form-label">NUPTK</label>
+        <label for="nuptk" class="form-label">NIP</label>
         <input type="text" class="form-control" id="nuptk" name="nuptk" value="{{ $guru->nuptk }}" required>
       </div>
       <div class="mb-3">

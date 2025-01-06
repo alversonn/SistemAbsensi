@@ -11,7 +11,7 @@
     <form action="{{ route('guru.store') }}" method="POST">
       @csrf
       <div class="mb-3">
-        <label for="nuptk" class="form-label">NUPTK</label>
+        <label for="nuptk" class="form-label">NIP</label>
         <input type="text" class="form-control" id="nuptk" name="nuptk" required>
       </div>
       <div class="mb-3">

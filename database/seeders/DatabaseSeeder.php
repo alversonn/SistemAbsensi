@@ -16,12 +16,11 @@ class DatabaseSeeder extends Seeder
     // User::factory(10)->create();
 
     $this->call([
-      KelasSeeder::class, // Seeder untuk tabel 'kelas' dijalankan pertama
       KelasSeeder::class,
-      GuruSeeder::class,  // Seeder untuk tabel 'guru' dijalankan terakhir
+      GuruSeeder::class,  // Jalankan GuruSeeder terlebih dahulu
       Mapel::class,
-      SiswaSeeder::class, // Seeder untuk tabel 'siswa' dijalankan kedua
-      Sesi::class,
+      SiswaSeeder::class,
+      Sesi::class,  // Jalankan SesiSeeder setelah GuruSeeder
     ]);
 
     User::factory()->create([

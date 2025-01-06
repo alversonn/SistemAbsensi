@@ -8,13 +8,13 @@ $navbarDetached = ($navbarDetached ?? '');
 <!-- Navbar -->
 @if(isset($navbarDetached) && $navbarDetached == 'navbar-detached')
 <nav class="layout-navbar {{$containerNav}} navbar navbar-expand-xl {{$navbarDetached}} align-items-center bg-navbar-theme" id="layout-navbar">
-@endif
-@if(isset($navbarDetached) && $navbarDetached == '')
-<nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
-  <div class="{{$containerNav}}">
-    @endif
+  @endif
+  @if(isset($navbarDetached) && $navbarDetached == '')
+  <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme" id="layout-navbar">
+    <div class="{{$containerNav}}">
+      @endif
 
-      <!--  Brand demo (display only for navbar-full and hide on below xl) -->
+      <!-- Brand demo (display only for navbar-full and hide on below xl)
       @if(isset($navbarFull))
       <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
         <a href="{{url('/')}}" class="app-brand-link gap-2">
@@ -22,7 +22,7 @@ $navbarDetached = ($navbarDetached ?? '');
           <span class="app-brand-text demo menu-text fw-bold text-heading">{{config('variables.templateName')}}</span>
         </a>
       </div>
-      @endif
+      @endif -->
 
       <!-- ! Not required for layout-without-menu -->
       @if(!isset($navbarHideToggle))
@@ -44,16 +44,16 @@ $navbarDetached = ($navbarDetached ?? '');
         <!-- /Search -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-          <!-- Place this tag where you want the button to render. -->
+          <!-- Place this tag where you want the button to render.
           <li class="nav-item lh-1 me-4">
             <a class="github-button" href="{{config('variables.repository')}}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themeselection/sneat-html-laravel-admin-template-free on GitHub">Star</a>
-          </li>
+          </li> -->
 
           <!-- User -->
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
               <div class="avatar avatar-online">
-                <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle">
+                <!-- <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle"> -->
               </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -62,7 +62,7 @@ $navbarDetached = ($navbarDetached ?? '');
                   <div class="d-flex">
                     <div class="flex-shrink-0 me-3">
                       <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle">
+                        <!-- <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle"> -->
                       </div>
                     </div>
                     <div class="flex-grow-1">

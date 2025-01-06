@@ -46,6 +46,22 @@ use App\Http\Controllers\pages\AccountSettingsNotifications;
 use App\Http\Controllers\authentications\ForgotPasswordBasic;
 use App\Http\Controllers\KehadiranSiswa;
 use App\Http\Controllers\user_interface\PaginationBreadcrumbs;
+use App\Http\Controllers\RekapController;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+Route::get('/rekap', [RekapController::class, 'index'])->name('rekap.index');
+Route::get('/rekap/export', [RekapController::class, 'export'])->name('rekap.export');
+
+
+Route::get('/test-pdf', function () {
+  $pdf = PDF::loadHTML('<h1>Halo Dunia</h1>');
+  return $pdf->download('test.pdf');
+});
+
+
+Route::get('/rekap', [RekapController::class, 'index'])->name('rekap.index');
+Route::get('/rekap/export-pdf', [RekapController::class, 'exportPdf'])->name('rekap.export');
+
 
 
 Route::resource('guru', GuruController::class);

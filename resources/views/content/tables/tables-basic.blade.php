@@ -14,7 +14,7 @@
 
 <div class="card">
   <div class="card-header d-flex justify-content-between align-items-center">
-    <h5 class="card-title mb-0">Tabel Siswa</h5>
+    <h5 class="card-title mb-0">Tabel Siswa </h5>
     <div class="d-flex justify-content-end">
       <a href="{{ route('siswa.create') }}" class="btn btn-primary">Tambah Siswa</a>
     </div>

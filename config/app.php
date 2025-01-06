@@ -13,6 +13,8 @@ return [
   |
   */
 
+
+
   'name' => env('APP_NAME', 'Laravel'),
 
   /*
@@ -123,4 +125,25 @@ return [
     'store' => env('APP_MAINTENANCE_STORE', 'database'),
   ],
 
+];
+
+return [
+  // Konfigurasi lainnya...
+
+  'providers' => [
+    // Service providers default Laravel
+    Illuminate\Auth\AuthServiceProvider::class,
+    Illuminate\Broadcasting\BroadcastServiceProvider::class,
+    Illuminate\Bus\BusServiceProvider::class,
+    // Tambahkan DomPDF di sini
+    Barryvdh\DomPDF\ServiceProvider::class,
+  ],
+
+  'aliases' => [
+    // Alias default Laravel
+    'App' => Illuminate\Support\Facades\App::class,
+    'DB' => Illuminate\Support\Facades\DB::class,
+    // Tambahkan alias PDF di sini
+    'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+  ],
 ];

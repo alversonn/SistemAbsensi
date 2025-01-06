@@ -40,7 +40,11 @@
         <div class="alert alert-danger mt-1">{{ $message }}</div>
         @enderror
       </div>
-      <button type="submit" class="btn btn-primary">Simpan</button>
+      <div class="form-group">
+        <label for="kelas">Kelas</label>
+        <input type="text" name="kelas" id="kelas" class="form-control" required>
+      </div>
+      <button type="submit" style="margin-top: 10px; margin-bottom: 20px;" class="btn btn-primary">Simpan</button>
     </form>
   </div>
 </div>

@@ -15,6 +15,7 @@ class Siswa extends Model
     'nisn',
     'nama',
     'status',
+    'kelas'
   ];
 
   public function class()
@@ -23,7 +24,7 @@ class Siswa extends Model
   }
 
   public function kehadiran()
-    {
-        return $this->hasMany(Kehadiran::class, 'id_siswa');
-    }
+  {
+    return $this->hasMany(Kehadiran::class, 'id_siswa');
+  }
 }

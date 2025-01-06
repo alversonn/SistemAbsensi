@@ -29,6 +29,7 @@ class SiswaController extends Controller
       'nisn' => 'required|unique:siswa,nisn|max:10',
       'nama' => 'required|string|max:255',
       'status' => 'required|in:Alpha,Hadir',
+      'kelas' => 'required|string|max:255', // Tambahkan validasi kelas
     ]);
 
     Siswa::create($request->all());
@@ -48,15 +49,20 @@ class SiswaController extends Controller
 
   public function update(Request $request, Siswa $siswa)
   {
-    $request->validate([
-      'nisn' => 'required|max:10|unique:siswa,nisn,' . $siswa->id,
-      'nama' => 'required|string|max:255',
-      'status' => 'required|in:Alpha,Hadir',
-    ]);
+    try {
+      $request->validate([
+        'nisn' => 'required|max:10|unique:siswa,nisn,' . $siswa->id,
+        'nama' => 'required|string|max:255',
+        'status' => 'required|in:Alpha,Hadir',
+      ]);
 
-    $siswa->update($request->all());
+      $siswa->update($request->all());
 
-    return redirect()->route('siswa.index')->with('success', 'Siswa berhasil diperbarui.');
+      return redirect()->route('siswa.index')->with('success', 'Siswa berhasil diperbarui.');
+    } catch (\Exception $e) {
+      Log::error('Error updating siswa: ' . $e->getMessage());
+      return redirect()->back()->with('error', 'Gagal memperbarui siswa.');
+    }
   }
 
   public function destroy(Siswa $siswa)

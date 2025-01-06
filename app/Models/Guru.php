@@ -15,4 +15,10 @@ class Guru extends Model
     'nuptk',
     'nama',
   ];
+
+  // Relasi dengan Sesi
+  public function sesi()
+  {
+    return $this->hasMany(Sesi::class);
+  }
 }
