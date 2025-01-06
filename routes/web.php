@@ -48,6 +48,13 @@ use App\Http\Controllers\KehadiranSiswa;
 use App\Http\Controllers\user_interface\PaginationBreadcrumbs;
 use App\Http\Controllers\RekapController;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+
+
+
 
 Route::get('/rekap', [RekapController::class, 'index'])->name('rekap.index');
 Route::get('/rekap/export', [RekapController::class, 'export'])->name('rekap.export');

@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Tables - Basic Tables')
+@section('title', 'Absensi Tabel')
 
 @section('page-style')
 @vite('resources/assets/versi 3.1/datatables.min.css')
